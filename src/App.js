@@ -4,6 +4,12 @@ import './App.css';
 import Artists from './components/artists'
 
 class App extends Component{
+
+  render() {
+    return (
+      <Artists artists={this.state.artists}/>
+    )
+  };
   
   state = {
     artists: []
@@ -18,11 +24,7 @@ componentDidMount() {
   .catch(console.log)
 };
 
-render() {
-  return (
-    <Artists artists={this.state.artists}/>
-  )
-};
+
 }
 
 
