@@ -1,31 +1,46 @@
 import React from 'react';
 import './App.css';
 
-function App() {
+class App extends Component {
+  
+  state = {
+    artists: []
+}
 
-  const [artists, setInputValue] = React.useState("");
+componentDidMount() {
+  fetch("http://localhost:8080/artists")
+  .then(res => res.json())
+  .then((data) => {
+    this.setState({contacts: data })
+  })
+  .catch(console.log)
+}
 
 
-  const [artistCard, setArtistCards] = React.useState([
-    ""
-  ]);
 
-  function handleClick() {
-    setArtistCards([artists, ...artistCard]);
+  // const [artists, setInputValue] = React.useState("");
+
+
+  // const [artistCard, setArtistCards] = React.useState([
+  //   ""
+  // ]);
+
+  // function handleClick() {
+  //   setArtistCards([artists, ...artistCard]);
     
-  }
+  // }
 
-  const [fetchResponse, setFetchResponse] = React.useState({});
+  // const [fetchResponse, setFetchResponse] = React.useState({});
 
 
-  React.useEffect(() => {
-    fetch("http://localhost:8080/artists")
-      .then(res => res.json())
-      .then(response => {
-        console.log(response);
-        setFetchResponse(response);
-      });
-  }, []);
+  // React.useEffect(() => {
+  //   fetch("http://localhost:8080/artists")
+  //     .then(res => res.json())
+  //     .then(response => {
+  //       console.log(response);
+  //       setFetchResponse(response);
+  //     });
+  // }, []);
 
   return (
     <div className="App">
