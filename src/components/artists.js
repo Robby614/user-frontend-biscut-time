@@ -5,7 +5,7 @@ const Artists = ({ artists }) => {
         <div>
             <center><h1> Artists</h1></center>
             {artists.map((artist) => 
-                <div className="artist-cards">artist cards
+                <div className="artist-cards">
                     <div className="artist-card">artist card
                         <h2 className="artist-name">{artist.name}</h2>
                         <img src={artist.imageUrl} alt={artist.name}></img>
