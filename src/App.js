@@ -1,26 +1,54 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
 
-function App() {
+import Artists from './components/artists'
+
+class App extends Component{
+
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     showArtists: false,
+  //   }
+  //   this.renderArtists = this.renderArtists.bind(this)
+  // }
+
+  // renderArtists() {
+  //   this.setState({
+  //     showArtists:true,
+  //   })
+  // }
+
+  render() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+      <header className="header">
+        <h1>Biscuit Time!</h1>
+      <button className="artists-button" onClick={this.renderArtists}>Artists</button>
+        
+     </header>
+      <div>
+        <Artists artists={this.state.artists}/>
+      </div>
+
+   </div>
+  )}
+  
+  state = {
+    artists: []
+};
+
+componentDidMount() {
+  fetch("http://localhost:8080/api/artists")
+  .then(res => res.json())
+  .then((data) => {
+    this.setState({ artists: data })
+  })
+  .catch(console.log)
+};
 }
+
+
+// []
 
 export default App;

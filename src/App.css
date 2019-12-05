@@ -2,21 +2,34 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: pink;
 }
 
-.App-link {
-  color: #09d3ac;
+.artists-button {
+  margin: 0px 0px 0px 100px;
 }
+
+.artist-card {
+  border: 2px solid black;
+  padding: 1rem;
+  margin: 3rem;
+  max-width: 200px;
+}
+
+img {
+  max-width: 180px;
+}
+
+.artist-cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap:wrap;
+  width: 100%;
+}
+
+
+
